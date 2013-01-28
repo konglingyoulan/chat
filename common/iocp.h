@@ -11,6 +11,9 @@ public:
 
 	bool create();
 	bool attach_socket(const tcp_socket &sock);
+	tcp_socket* wait();
+
+	bool valid() const {return completion_handle_ != NULL;}
 
 protected:
 	HANDLE completion_handle_;

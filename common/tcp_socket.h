@@ -19,7 +19,9 @@ public:
 	bool async_recv();
 	bool recv();
 
-	bool valid() {return handle_ != INVALID_SOCKET;}
+	operator SOCKET() const {return handle_;};
+
+	bool valid() const {return handle_ != INVALID_SOCKET;}
 
 protected:
 	SOCKET handle_;
