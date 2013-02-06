@@ -147,7 +147,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\socket_manager.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\tcp_socket.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\thread.cpp"
 				>
 			</File>
 		</Filter>
@@ -181,7 +189,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\socket_manager.h"
+				>
+			</File>
+			<File
 				RelativePath=".\tcp_socket.h"
+				>
+			</File>
+			<File
+				RelativePath=".\thread.h"
 				>
 			</File>
 		</Filter>

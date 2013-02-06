@@ -37,10 +37,15 @@ public:
 	//to parse bytes stream into each member.
 	virtual void handle_recv() = 0;
 
+	WSABUF* get_send_buf() const;
+	WSABUF* get_recv_buf() const;
+
 protected:
 	OVERLAPPED overlapped_;
 	int type_;
-	WSABUF buf_; 
+	u_long bytes_length_;
+	WSABUF *send_buf_;
+	WSABUF *recv_buf_; 
 };
 
 #endif

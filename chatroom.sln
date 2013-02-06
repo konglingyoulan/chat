@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "server", "server\server.vcproj", "{77C374A0-7496-4DA9-B344-FA158CFCF1E8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EACB083C-02FF-423C-8B78-138CB37FD4AF} = {EACB083C-02FF-423C-8B78-138CB37FD4AF}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "client", "client\client.vcproj", "{5E3ED045-F90D-48B5-BB04-B328F4C00FA0}"
 EndProject

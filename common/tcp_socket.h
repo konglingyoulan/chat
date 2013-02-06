@@ -6,10 +6,11 @@
 
 using std::list;
 
+class iocp;
 class tcp_socket
 {
 public:
-	tcp_socket(SOCKET sock = INVALID_SOCKET);
+	tcp_socket(SOCKET sock = INVALID_SOCKET, iocp *io = NULL);
 	virtual ~tcp_socket(void);
 
 	bool create();
@@ -18,6 +19,10 @@ public:
 	bool send();
 	bool async_recv();
 	bool recv();
+	bool listen(int backlog);
+	tcp_socket* accept();
+
+	void add_send_message(shared_ptr<message>& msg);
 
 	operator SOCKET() const {return handle_;};
 
@@ -25,8 +30,10 @@ public:
 
 protected:
 	SOCKET handle_;
+	sockaddr_in addr_;
+	iocp *io_;
 	list<message_wrapper> to_send_msgs_;
-	shared_ptr<message> recving_msg_;
+	shared_ptr<message_wrapper> recving_msg_;
 };
 
 #endif

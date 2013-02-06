@@ -26,6 +26,8 @@ bool iocp::attach_socket(const tcp_socket &sock)
 	{
 		return false;
 	}
+
+	clients_.push_back(shared_ptr<tcp_socket>(const_cast<tcp_socket*>(&sock)));
 	return true;
 }
 
@@ -35,5 +37,13 @@ tcp_socket* iocp::wait()
 	{
 		return NULL;
 	}
-	GetQueuedCompletionStatus(completion_handle_)
+
+	tcp_socket *sock;
+	message *msg;
+	DWORD bytes;
+	if (GetQueuedCompletionStatus(completion_handle_, &bytes, (PULONG_PTR)&sock, (LPOVERLAPPED*)&msg, INFINITE) != FALSE)
+	{
+		return sock;
+	}
+	return NULL;
 }
